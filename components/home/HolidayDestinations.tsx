@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { destinations } from "@/data/dummy-data";
+import { destinations, HomeDestinations } from "@/data/dummy-data";
 import CityCard from "../helpersCard/CityCard";
 
 const HolidayDestinations = () => {
@@ -14,7 +13,7 @@ const HolidayDestinations = () => {
       </div>
 
       <div className="flex justify-center gap-10">
-        {destinations.map((city) => {
+        {HomeDestinations.map((city) => {
           return (
             <CityCard key={city.href} href={city.href} title={city.title} description={city.description} image={city.image} />
           );

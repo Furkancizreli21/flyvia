@@ -4,11 +4,11 @@ import Link from "next/link";
 interface CityCardProps {
   href: string;
   title: string;
-  description: string;
   image: string;
+  region: string;
 }
 
-const CityCard = ({ href, title, description, image }: CityCardProps) => {
+const CityCard = ({ href, title, image, region }: CityCardProps) => {
   return (
     <Link
       href={href}
@@ -21,7 +21,7 @@ const CityCard = ({ href, title, description, image }: CityCardProps) => {
       <div className="p-5">
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
 
-        <p className="mt-2 text-sm text-blue-400 leading-relaxed">{description}</p>
+        <p className="mt-2 text-sm text-blue-400 leading-relaxed">{region}</p>
       </div>
     </Link>
   );

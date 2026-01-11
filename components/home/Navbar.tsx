@@ -1,13 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <div>
-      <Image src="/home/homes.png" alt="Background" fill priority className="object-cover -z-20" />
-      <div className="absolute inset-0 bg-black/30 -z-10" />
-
-      <nav className="absolute top-0 w-full z-50 px-6 py-4">
+      <nav className="bg-black top-0 w-full z-50 px-6 py-4">
         <div className="container mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image src="/home/icon.png" alt="icon" width={150} height={10} className="brightness-0 invert" />
@@ -15,7 +12,7 @@ const Navbar = () => {
 
           <ul className="hidden md:flex gap-8 text-white font-medium">
             <li className="hover:text-blue-400 transition cursor-pointer">
-              <Link href="/">Holiday Destinations</Link>
+              <Link href="/destinations">Holiday Destinations</Link>
             </li>
             <li className="hover:text-blue-400 transition cursor-pointer">
               <Link href="/">Rent a car</Link>
