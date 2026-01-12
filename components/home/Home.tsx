@@ -1,9 +1,8 @@
 "use client";
 import { Car, Globe, Hotel, Search } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
 
 const Home = () => {
   const [cities, setCities] = useState<string[]>([]);

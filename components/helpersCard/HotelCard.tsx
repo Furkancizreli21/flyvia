@@ -1,15 +1,33 @@
+"use client";
 import Image from "next/image";
 import { Rating } from "@mui/material";
 import { FaLocationDot, FaHeart } from "react-icons/fa6";
+import Link from "next/link";
+type Props = {
+  citySlug: string;
+  hotel: {
+    name: string;
+    slug: string;
+    image: string;
+    location: string;
+    description: string;
+    price: number;
+    rating: number;
+    reviewsCount: number;
+  };
+};
 
-export default function HotelCard() {
+export default function HotelCard({ hotel, citySlug }: Props) {
   return (
-    <div className="flex w-full bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer mb-7">
+    <Link
+      href={`/destinations/${citySlug}/${hotel.slug}`}
+      className="flex w-full bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer mb-7"
+    >
       <div className="relative w-75 h-full shrink-0">
-        <Image src="/hotels/dubai/dubai.jpg" alt="Hotel" fill className="object-cover" />
+        <Image src={hotel.image} alt="Hotel" fill className="object-cover" />
 
         <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-          BEST SELLER
+          {hotel.rating > 9 ? <span>Top rating</span> : <span>Best Seller</span>}
         </span>
 
         <button className="absolute top-3 right-3 bg-white/80 p-2 rounded-full hover:bg-white">
@@ -20,19 +38,16 @@ export default function HotelCard() {
       <div className="flex flex-1 p-6 justify-between">
         <div className="flex flex-col gap-2 max-w-[65%]">
           <div className="flex items-center gap-2">
-            <h3 className="text-lg font-semibold">Hôtel de Lumière</h3>
+            <h3 className="text-lg font-semibold">{hotel.name}</h3>
             <Rating value={5} readOnly size="small" />
           </div>
 
           <div className="flex items-center gap-1 text-sm text-gray-500">
             <FaLocationDot />
-            <span>7th Arrondissement, Paris • 0.5 km from center</span>
+            <span>{hotel.location}</span>
           </div>
 
-          <p className="text-sm text-gray-600 line-clamp-2">
-            Experience luxury at its finest with breathtaking views of the Eiffel Tower and world-class amenities including a spa
-            and Michelin-star dining.
-          </p>
+          <p className="text-sm text-gray-600 line-clamp-2">{hotel.description}</p>
 
           <div className="flex gap-2 mt-2">
             <span className="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">Free Cancellation</span>
@@ -40,7 +55,7 @@ export default function HotelCard() {
           </div>
           <div>
             <p className="text-sm text-gray-500">Per night</p>
-            <p className="text-2xl font-bold text-blue-600">$349</p>
+            <p className="text-2xl font-bold text-blue-600">${hotel.price}</p>
           </div>
         </div>
 
@@ -48,9 +63,9 @@ export default function HotelCard() {
           <div className="flex items-center gap-3">
             <div className="text-right">
               <p className="font-semibold">Excellent</p>
-              <p className="text-sm text-gray-400">2,410 reviews</p>
+              <p className="text-sm text-gray-400">{hotel.reviewsCount} reviews</p>
             </div>
-            <span className="bg-blue-600 text-white font-semibold px-3 py-2 rounded-xl">9.4</span>
+            <span className="bg-blue-600 text-white font-semibold px-3 py-2 rounded-xl">{hotel.rating}</span>
           </div>
 
           <div className="text-right">
@@ -60,6 +75,6 @@ export default function HotelCard() {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

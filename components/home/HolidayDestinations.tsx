@@ -1,4 +1,4 @@
-import { destinations, HomeDestinations } from "@/data/dummy-data";
+import { HomeDestinations } from "@/data/home-dummy-data";
 import CityCard from "../helpersCard/CityCard";
 
 const HolidayDestinations = () => {

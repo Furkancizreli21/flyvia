@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { hotelsData } from "@/data/dummy-data";
+import { hotelsData } from "@/data/instantdeals-dummy-data";
 import InstantCards from "@/components/helpersCard/InstantCards";
 
 const InstantDeals = () => {
