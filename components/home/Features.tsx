@@ -25,14 +25,12 @@ const WhyChooseUs = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col items-center text-center group">
-            {/* Icon Container */}
             <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-blue-100 group-hover:scale-105">
               {feature.icon}
             </div>
 
-            {/* Text Content */}
             <h3 className="text-xl font-semibold text-gray-900 mb-3 uppercase tracking-wide">{feature.title}</h3>
-            <p className="text-gray-500 leading-relaxed max-w-[280px]">{feature.description}</p>
+            <p className="text-gray-500 leading-relaxed max-w-70">{feature.description}</p>
           </div>
         ))}
       </div>

@@ -10,18 +10,17 @@ interface CityCardProps {
 
 const CityCard = ({ href, title, image, region }: CityCardProps) => {
   return (
-    <Link
-      href={href}
-      className="w-80 rounded-2xl overflow-hidden bg-white shadow-xl hover:-translate-y-2 transition duration-300 ease-in"
-    >
-      <div className="relative h-48">
-        <Image src={image} alt={title} fill />
-      </div>
+    <Link href={href} className="group relative w-80 h-96 overflow-hidden rounded-3xl">
+      {/* IMAGE */}
+      <Image src={image} alt={title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
 
-      <div className="p-5">
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
-        <p className="mt-2 text-sm text-blue-400 leading-relaxed">{region}</p>
+      {/* CONTENT */}
+      <div className="absolute bottom-0 p-6 text-white">
+        <p className="text-xs uppercase tracking-widest text-white/70">{region}</p>
+        <h3 className="mt-1 text-2xl font-semibold leading-tight">{title}</h3>
       </div>
     </Link>
   );

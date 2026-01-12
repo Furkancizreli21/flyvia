@@ -24,7 +24,6 @@ const Footer = () => {
     <footer className="bg-[#0a1128] text-gray-400 py-12 px-6 border-t border-gray-800">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand Section */}
           <div className="flex flex-col space-y-6">
             <div className="flex items-center space-x-2 text-white">
               <div className="relative w-12 h-12 flex items-center justify-center">
@@ -49,7 +48,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Link Sections */}
           {footerLinks.map((section, index) => (
             <div key={index}>
               <h4 className="text-white font-bold mb-6 tracking-wider">{section.title}</h4>
@@ -66,7 +64,6 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 text-center">
           <p className="text-xs tracking-wide">© {currentYear} VoyagePlus. All rights reserved.</p>
         </div>

@@ -1,16 +1,21 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
+  const path = usePathname();
+  const isHome = path === "/";
+
   return (
     <div>
-      <nav className="bg-black top-0 w-full z-50 px-6 py-4">
+      <nav className={` top-0 w-full z-50 px-6 py-4 ${isHome ? "text-white" : "text-black"}`}>
         <div className="container mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <Image src="/home/icon.png" alt="icon" width={150} height={10} className="brightness-0 invert" />
+            <Image src="/home/icon.png" alt="icon" width={150} height={10} />
           </Link>
 
-          <ul className="hidden md:flex gap-8 text-white font-medium">
+          <ul className="hidden md:flex gap-8  font-medium">
             <li className="hover:text-blue-400 transition cursor-pointer">
               <Link href="/destinations">Holiday Destinations</Link>
             </li>

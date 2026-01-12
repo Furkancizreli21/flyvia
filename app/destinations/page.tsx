@@ -1,65 +1,62 @@
-import CityCard from "@/components/helpersCard/CityCard";
+import DestinationCard from "@/components/helpersCard/DestinationCard";
 import { destinations } from "@/data/dummy-data";
 import { IoFilterSharp } from "react-icons/io5";
-import DestinationCard from "@/components/helpersCard/DestinationCard";
+
 export default function Destinations() {
-  const regions = [
-    { name: "All Regions" },
-    { name: "Europa" },
-    { name: "Asia" },
-    { name: "Americas" },
-    { name: "Africa" },
-    { name: "Oceania" },
-  ];
+  const regions = ["All", "Europe", "Asia", "Americas", "Africa", "Oceania"];
+
   return (
-    <div className="p-15">
-      <div className="flex flex-col gap-5">
-        <h1 className="font-bold text-2xl">Explore the World</h1>
-        <p className="text-blue-500">
-          Discover hand-picked destinations with over 50,000 unique stays and local experiences waiting for you.
-        </p>
-      </div>
-      <div className="flex justify-between mt-10">
-        <ul className="flex gap-5 mb-10">
-          {regions.map((region, index) => {
-            return (
-              <button
-                key={index}
-                className="border border-gray-300 p-2 rounded-2xl bg-white cursor-pointer px-5 hover:text-white hover:bg-blue-400 transition duration-300 hover:scale-105"
-              >
-                {region.name}
-              </button>
-            );
-          })}
-        </ul>
+    <section className="mx-auto max-w-7xl px-6 py-20 bg-linear-to-b">
+      <header className="mb-14 max-w-3xl">
+        <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">Explore the world</h1>
+        <p className="mt-4 text-lg text-gray-600">Discover iconic destinations, vibrant cities, and unforgettable experiences.</p>
+      </header>
+
+      <div className="mb-16 flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-white p-5 shadow-md shadow-indigo-100/50">
+        <div className="flex flex-wrap gap-3">
+          {regions.map((region) => (
+            <button
+              key={region}
+              className="
+                rounded-full px-6 py-2 text-sm font-medium
+                bg-indigo-50 text-indigo-700 transition
+                hover:bg-indigo-600 hover:text-white cursor-pointer
+              "
+            >
+              {region}
+            </button>
+          ))}
+        </div>
+
         <div className="flex items-center gap-4">
           <button
-            className="flex items-center gap-2 rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700
-               transition-all duration-300
-               hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:scale-105"
+            className="
+              flex items-center gap-2 rounded-full px-6 py-2
+              bg-purple-50 text-purple-700 text-sm font-medium transition
+              hover:bg-purple-600 hover:text-white cursor-pointer
+            "
           >
-            <IoFilterSharp className="text-lg" />
+            <IoFilterSharp className="text-lg cursor-pointer" />
             Filters
           </button>
 
           <button
-            className="flex items-center gap-2 rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700
-               transition-all duration-300
-               hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:scale-105"
+            className="
+              rounded-full px-6 py-2 text-sm font-medium
+              bg-blue-50 text-blue-700 transition
+              hover:bg-blue-600 hover:text-white cursor-pointer
+            "
           >
-            Sort by: <span className="font-semibold">Popular</span>
+            Sort by <span className="font-semibold">Popular</span>
           </button>
         </div>
       </div>
-      <div>
-        <div className="flex flex-wrap justify-center gap-5 ">
-          {destinations.map((city) => {
-            return (
-              <DestinationCard key={city.href} href={city.href} image={city.image} title={city.title} region={city.region} />
-            );
-          })}
-        </div>
+
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {destinations.map((city) => (
+          <DestinationCard key={city.href} href={city.href} image={city.image} title={city.title} region={city.region} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
