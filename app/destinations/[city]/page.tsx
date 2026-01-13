@@ -9,5 +9,5 @@ export default async function CityDetail({ params }: any) {
     return <div className="p-10 text-xl">City not found</div>;
   }
 
-  return <CityDetailClient selectedCity={selectedCity} />;
+  return <CityDetailClient selectedCity={selectedCity as any} />;
 }
