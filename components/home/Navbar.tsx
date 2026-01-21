@@ -26,7 +26,7 @@ export const Navbar = () => {
               <Link href="/">Opportunities</Link>
             </li>
             <li className="hover:text-blue-400 transition cursor-pointer">
-              <Link href="/">Contact</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
 

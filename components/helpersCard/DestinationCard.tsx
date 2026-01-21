@@ -10,14 +10,30 @@ interface CityCardProps {
 
 const CityCard = ({ href, title, image, region }: CityCardProps) => {
   return (
-    <Link href={href} className="group relative w-80 h-96 overflow-hidden rounded-3xl">
-      <Image src={image} alt={title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+    <Link href={href} className="group relative h-[420px] w-[320px] overflow-hidden rounded-2xl bg-black">
+      {/* Background Image */}
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover transition-all duration-700 group-hover:scale-[1.03] group-hover:blur-[1px]"
+      />
 
-      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:bg-black/60" />
 
-      <div className="absolute bottom-0 p-6 text-white">
-        <p className="text-xs uppercase tracking-widest text-white/70">{region}</p>
-        <h3 className="mt-1 text-2xl font-semibold leading-tight">{title}</h3>
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col justify-between p-6">
+        {/* Region Badge */}
+        <span className="w-fit rounded-full bg-white/90 px-4 py-1 text-xs font-medium tracking-wide text-black">{region}</span>
+
+        {/* Title */}
+        <div className="translate-y-6 transition-all duration-500 group-hover:translate-y-0">
+          <h3 className="text-3xl font-semibold leading-tight text-white">{title}</h3>
+          <p className="mt-2 text-sm text-white/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            Discover unforgettable experiences
+          </p>
+        </div>
       </div>
     </Link>
   );
