@@ -1,27 +1,16 @@
+import { buildHotelImages } from "@/lib/constants";
+
 export const destinations = [
   {
     href: "/destinations/tokyo",
-    image: "/destinations/tokyo.jpg",
+    image: "destinations/tokyo.jpg",
     title: "Tokyo",
     region: "Asia",
     hotel: [
       {
         name: "Hotel Indigo",
         slug: "hotel-indigo-tokyo",
-        image: "/hotels/tokyo/indigo/hotel.jpg",
-        images: [
-          "/hotels/tokyo/indigo/1.jpg",
-          "/hotels/tokyo/indigo/2.jpg",
-          "/hotels/tokyo/indigo/3.jpg",
-          "/hotels/tokyo/indigo/4.jpg",
-          "/hotels/tokyo/indigo/5.jpg",
-          "/hotels/tokyo/indigo/6.jpg",
-          ,
-          "/hotels/tokyo/indigo/7.jpg",
-          "/hotels/tokyo/indigo/8.jpg",
-          "/hotels/tokyo/indigo/9.jpg",
-          "/hotels/tokyo/indigo/10.jpg",
-        ],
+        images: buildHotelImages("hotels/tokyo/indigo", 10),
         location: "Tokyo, Shibuya-ku Dogenzaka 2-25-12, Japan",
         description: "A fast-paced city hotel blending modern comfort with Japanese style.",
         price: 419,
@@ -31,8 +20,7 @@ export const destinations = [
       {
         name: "Hotel Mercure",
         slug: "hotel-mercure-tokyo",
-        image: "/hotels/tokyo/mercure/hotel.jpg",
-        images: ["/hotels/tokyo/mercure/1.jpg", "/hotels/tokyo/mercure/2.jpg"],
+        images: buildHotelImages("hotels/tokyo/mercure", 9),
         location: "Tokyo, Shibuya-ku Dogenzaka 2-25-12, Japan",
         description: "Stylish and central hotel for business and leisure travelers.",
         price: 389,
@@ -42,8 +30,7 @@ export const destinations = [
       {
         name: "Hotel Metropolitan",
         slug: "hotel-metropolitan-tokyo",
-        image: "/hotels/tokyo/metropolitian/hotel.jpg",
-        images: ["/hotels/tokyo/metropolitian/1.jpg", "/hotels/tokyo/metropolitian/2.jpg"],
+        images: buildHotelImages("hotels/tokyo/metropolitian", 8),
         location: "Tokyo, Toshima-ku, Japan",
         description: "Elegant hotel with excellent transport connections.",
         price: 450,
@@ -55,15 +42,14 @@ export const destinations = [
 
   {
     href: "/destinations/cape-town",
-    image: "/destinations/capetown.jpg",
+    image: "destinations/capetown.jpg",
     title: "Cape Town",
     region: "Africa",
     hotel: [
       {
         name: "Hotel Oldbank",
         slug: "hotel-oldbank-cape-town",
-        image: "/hotels/capetown/oldbank/hotel.jpg",
-        images: ["/hotels/capetown/oldbank/1.jpg", "/hotels/capetown/oldbank/2.jpg"],
+        images: buildHotelImages("hotels/capetown/oldbank", 9),
         location: "Cape Town City Centre, South Africa",
         description: "Historic charm combined with modern luxury.",
         price: 310,
@@ -73,8 +59,7 @@ export const destinations = [
       {
         name: "Radisson Cape Town",
         slug: "radisson-cape-town",
-        image: "/hotels/capetown/radisson/hotel.jpg",
-        images: ["/hotels/capetown/radisson/1.jpg", "/hotels/capetown/radisson/2.jpg"],
+        images: buildHotelImages("hotels/capetown/radisson", 8),
         location: "Foreshore, Cape Town, South Africa",
         description: "Modern hotel with sea views and premium services.",
         price: 360,
@@ -84,8 +69,7 @@ export const destinations = [
       {
         name: "Rockefeller Hotel",
         slug: "rockefeller-hotel-cape-town",
-        image: "/hotels/capetown/rockfeller/hotel.jpg",
-        images: ["/hotels/capetown/rockfeller/1.jpg", "/hotels/capetown/rockfeller/2.jpg"],
+        images: buildHotelImages("hotels/capetown/rockfeller", 9),
         location: "Green Point, Cape Town, South Africa",
         description: "Comfortable stay close to the city’s main attractions.",
         price: 295,
@@ -97,15 +81,15 @@ export const destinations = [
 
   {
     href: "/destinations/paris",
-    image: "/destinations/paris.webp",
+    image: "destinations/paris.webp",
     title: "Paris",
     region: "Europe",
     hotel: [
       {
         name: "Hotel Bleu",
         slug: "hotel-bleu-paris",
-        image: "/hotels/paris/bleu/hotel.jpg",
-        images: ["/hotels/paris/bleu/1.jpg", "/hotels/paris/bleu/2.jpg"],
+
+        images: buildHotelImages("hotels/paris/bleu", 9),
         location: "9th Arrondissement, Paris, France",
         description: "Boutique hotel in the heart of Paris.",
         price: 420,
@@ -115,8 +99,8 @@ export const destinations = [
       {
         name: "Hotel Cardinal",
         slug: "hotel-cardinal-paris",
-        image: "/hotels/paris/cardinal/hotel.jpg",
-        images: ["/hotels/paris/cardinal/1.jpg", "/hotels/paris/cardinal/2.jpg"],
+
+        images: buildHotelImages("hotels/cardinal/hotel", 9),
         location: "Latin Quarter, Paris, France",
         description: "Elegant hotel close to historic landmarks.",
         price: 460,
@@ -126,8 +110,8 @@ export const destinations = [
       {
         name: "Hotel Regence",
         slug: "hotel-regence-paris",
-        image: "/hotels/paris/regence/hotel.jpg",
-        images: ["/hotels/paris/regence/1.jpg", "/hotels/paris/regence/2.jpg"],
+
+        images: buildHotelImages("hotels/paris/regence", 9),
         location: "Montmartre, Paris, France",
         description: "Classic Parisian atmosphere with modern comfort.",
         price: 395,
@@ -139,26 +123,25 @@ export const destinations = [
 
   {
     href: "/destinations/bangkok",
-    image: "/destinations/bangkok.avif",
+    image: "destinations/bangkok.avif",
     title: "Bangkok",
     region: "Asia",
     hotel: [
       {
         name: "Hotel Journey",
         slug: "hotel-journey-bangkok",
-        image: "/hotels/bangkok/journey/hotel.jpg",
-        images: ["/hotels/bangkok/journey/1.jpg", "/hotels/bangkok/journey/2.jpg"],
+        images: buildHotelImages("hotels/bangkok/journey", 9),
         location: "Sukhumvit, Bangkok, Thailand",
         description: "Affordable comfort in the heart of Bangkok.",
         price: 180,
         rating: 8.5,
         reviewsCount: 249,
       },
+
       {
         name: "Hotel Mercure Bangkok",
         slug: "hotel-mercure-bangkok",
-        image: "/hotels/bangkok/mercure/hotel.jpg",
-        images: ["/hotels/bangkok/mercure/1.jpg", "/hotels/bangkok/mercure/2.jpg"],
+        images: buildHotelImages("hotels/bangkok/mercure", 9),
         location: "Silom, Bangkok, Thailand",
         description: "Modern city hotel with easy transport access.",
         price: 230,
@@ -168,8 +151,7 @@ export const destinations = [
       {
         name: "Rockefeller Bangkok",
         slug: "rockefeller-bangkok",
-        image: "/hotels/bangkok/journey/hotel.jpg",
-        images: ["/hotels/bangkok/journey/3.jpg", "/hotels/bangkok/journey/4.jpg"],
+        images: buildHotelImages("hotels/bangkok/rockefeller", 9),
         location: "Asok, Bangkok, Thailand",
         description: "Central location ideal for business and leisure.",
         price: 210,
@@ -181,15 +163,14 @@ export const destinations = [
 
   {
     href: "/destinations/new-york",
-    image: "/destinations/newyork.avif",
+    image: "destinations/newyork.avif",
     title: "New York",
     region: "Americas",
     hotel: [
       {
         name: "Hotel Astoria",
         slug: "hotel-astoria-new-york",
-        image: "/hotels/newyork/astoria/hotel.jpg",
-        images: ["/hotels/newyork/astoria/1.jpg", "/hotels/newyork/astoria/2.jpg"],
+        images: buildHotelImages("hotels/newyork/astoria", 9),
         location: "Manhattan, New York, USA",
         description: "Classic New York hotel with iconic style.",
         price: 520,
@@ -199,8 +180,7 @@ export const destinations = [
       {
         name: "Hotel Aura",
         slug: "hotel-aura-new-york",
-        image: "/hotels/newyork/aura/hotel.jpg",
-        images: ["/hotels/newyork/aura/1.jpg", "/hotels/newyork/aura/2.jpg"],
+        images: buildHotelImages("hotels/newyork/aura", 9),
         location: "Times Square, New York, USA",
         description: "Stay in the heart of the city that never sleeps.",
         price: 610,
@@ -210,8 +190,7 @@ export const destinations = [
       {
         name: "Hotel Social",
         slug: "hotel-social-new-york",
-        image: "/hotels/newyork/social/hotel.jpg",
-        images: ["/hotels/newyork/social/1.jpg", "/hotels/newyork/social/2.jpg"],
+        images: buildHotelImages("hotels/newyork/social", 9),
         location: "Brooklyn, New York, USA",
         description: "Trendy hotel with a modern social atmosphere.",
         price: 450,

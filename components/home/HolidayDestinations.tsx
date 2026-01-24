@@ -19,10 +19,15 @@ const HolidayDestinations = () => {
           </button>
         </div>
 
-        {/* Grid Layout - Flex yerine Grid kullanımı daha moderndir */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {HomeDestinations.map((city) => (
-            <CityCard key={city.href} href={city.href} title={city.title} description={city.description} image={city.image} />
+            <CityCard
+              key={city.href}
+              href={city.href}
+              title={city.title}
+              description={city.description}
+              imageKey={city.imageKey}
+            />
           ))}
         </div>
       </div>

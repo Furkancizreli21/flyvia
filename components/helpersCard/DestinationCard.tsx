@@ -1,3 +1,4 @@
+import { S3_BASE_URL } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,10 +11,10 @@ interface CityCardProps {
 
 const CityCard = ({ href, title, image, region }: CityCardProps) => {
   return (
-    <Link href={href} className="group relative h-[420px] w-[320px] overflow-hidden rounded-2xl bg-black">
+    <Link href={href} className="group relative h-105 w-[320px] overflow-hidden rounded-2xl bg-black">
       {/* Background Image */}
       <Image
-        src={image}
+        src={`${S3_BASE_URL}/${image}`}
         alt={title}
         fill
         className="object-cover transition-all duration-700 group-hover:scale-[1.03] group-hover:blur-[1px]"

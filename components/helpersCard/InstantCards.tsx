@@ -1,8 +1,9 @@
+import { S3_BASE_URL } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 
 interface HotelCardProps {
-  image: string;
+  imageUrl: string;
   title: string;
   description: string;
   price: number;
@@ -10,11 +11,16 @@ interface HotelCardProps {
   discountTag: string;
 }
 
-const InstantCards = ({ image, title, price, oldPrice, description, discountTag }: HotelCardProps) => {
+const InstantCards = ({ imageUrl, title, price, oldPrice, description, discountTag }: HotelCardProps) => {
   return (
     <Link href="#" className="flex flex-col gap-4 w-70 group">
       <div className="relative w-full h-50 rounded-3xl overflow-hidden shadow-md">
-        <Image src={image} alt={title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
+        <Image
+          src={`${S3_BASE_URL}/${imageUrl}`}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute top-3 left-3 bg-white px-3 py-1 rounded-full shadow-md">
           <span className="text-[10px] font-black text-blue-600 uppercase tracking-wider">{discountTag}</span>
         </div>

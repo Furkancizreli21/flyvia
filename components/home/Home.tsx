@@ -1,4 +1,5 @@
 "use client";
+import { S3_BASE_URL } from "@/lib/constants";
 import { Car, Globe, Hotel, Search } from "lucide-react";
 import Image from "next/image";
 
@@ -25,7 +26,7 @@ const Home = () => {
 
   return (
     <section className=" h-screen w-full flex flex-col overflow-hidden font-sans">
-      <Image src="/home/homes.png" alt="Background" fill priority className="object-cover -z-20" />
+      <Image src={`${S3_BASE_URL}/home/homes.png`} alt="Background" fill priority className="object-cover -z-20" />
       <div className="absolute inset-0 bg-black/30 -z-10" />
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center">
@@ -92,3 +93,5 @@ const Home = () => {
 };
 
 export default Home;
+
+//

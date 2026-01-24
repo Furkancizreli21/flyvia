@@ -148,9 +148,12 @@ const CityDetailClient = ({ selectedCity }: CityDetailClientProps) => {
             </select>
           </div>
         </div>
-        {selectedCity.hotel.map((hotel) => (
-          <HotelCard key={hotel.slug} hotel={hotel} citySlug={citySlug} />
-        ))}
+
+        {selectedCity.hotel
+          .filter((hotel) => hotel.images && hotel.images.length > 0)
+          .map((hotel) => {
+            return <HotelCard key={hotel.slug} hotel={hotel} citySlug={citySlug} />;
+          })}
       </div>
     </section>
   );

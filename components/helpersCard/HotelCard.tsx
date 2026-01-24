@@ -3,12 +3,15 @@ import Image from "next/image";
 import { Rating } from "@mui/material";
 import { FaLocationDot, FaHeart } from "react-icons/fa6";
 import Link from "next/link";
+
 type Props = {
   citySlug: string;
   hotel: {
     name: string;
     slug: string;
     image: string;
+    images: string[];
+
     location: string;
     description: string;
     price: number;
@@ -18,13 +21,15 @@ type Props = {
 };
 
 export default function HotelCard({ hotel, citySlug }: Props) {
+  const coverImage = hotel.images[0];
+
   return (
     <Link
       href={`/destinations/${citySlug}/${hotel.slug}`}
       className="flex w-full bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer mb-7"
     >
       <div className="relative w-75 h-full shrink-0">
-        <Image src={hotel.image} alt="Hotel" fill className="object-cover" />
+        <Image src={coverImage} alt="Hotel" fill className="object-cover" />
 
         <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
           {hotel.rating > 9 ? <span>Top rating</span> : <span>Best Seller</span>}

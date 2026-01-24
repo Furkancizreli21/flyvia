@@ -1,25 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { S3_BASE_URL } from "@/lib/constants";
 interface CityCardProps {
   href: string;
   title: string;
   description: string;
-  image: string;
+  imageKey: string;
 }
 
-const CityCard = ({ href, title, description, image }: CityCardProps) => {
+const CityCard = ({ href, title, description, imageKey }: CityCardProps) => {
   return (
     <Link
       href={href}
-      className="group relative flex flex-col h-full overflow-hidden rounded-[2rem] bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1"
+      className="group relative flex flex-col h-full overflow-hidden rounded-4xl bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1"
     >
       {/* Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
-        <Image src={image} alt={title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+      <div className="relative aspect-4/3 w-full overflow-hidden">
+        <Image
+          src={`${S3_BASE_URL}/${imageKey}`}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+        />
 
         {/* Overlay Gradient (Görsel üstüne hafif karartma - yazı okunurluğu ve estetik için) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 
         {/* Örnek Badge (Sağ üst köşe - Canlılık katar) */}
         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
