@@ -14,7 +14,6 @@ const CityCard = ({ href, title, description, imageKey }: CityCardProps) => {
       href={href}
       className="group relative flex flex-col h-full overflow-hidden rounded-4xl bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1"
     >
-      {/* Image Container */}
       <div className="relative aspect-4/3 w-full overflow-hidden">
         <Image
           src={`${S3_BASE_URL}/${imageKey}`}
@@ -23,17 +22,14 @@ const CityCard = ({ href, title, description, imageKey }: CityCardProps) => {
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
-        {/* Overlay Gradient (Görsel üstüne hafif karartma - yazı okunurluğu ve estetik için) */}
         <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 
-        {/* Örnek Badge (Sağ üst köşe - Canlılık katar) */}
         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
           <span className="text-yellow-500 text-xs">★</span>
           <span className="text-xs font-bold text-gray-800">4.9</span>
         </div>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between mb-2">
           <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{title}</h3>

@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link href="/destinations">Holiday Destinations</Link>
             </li>
             <li className="hover:text-blue-400 transition">
-              <Link href="/">Rent a car</Link>
+              <Link href="/rentacar">Rent a car</Link>
             </li>
             <li className="hover:text-blue-400 transition">
               <Link href="/">Opportunities</Link>
