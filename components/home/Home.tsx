@@ -2,6 +2,7 @@
 import { S3_BASE_URL } from "@/lib/constants";
 import { Car, Globe, Hotel, Search } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 
@@ -28,7 +29,7 @@ const Home = () => {
     <section className=" h-screen w-full flex flex-col overflow-hidden font-sans">
       <Image src={`${S3_BASE_URL}/home/homes.png`} alt="Background" fill priority className="object-cover -z-20" />
       <div className="absolute inset-0 bg-black/30 -z-10" />
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex flex-col items-center justify-start flex-1 pt-32">
         <div className="container mx-auto px-4 text-center">
           <div className="text-white mb-10">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-xl">Find Your Perfect Escape</h1>
@@ -72,14 +73,14 @@ const Home = () => {
             <div className="h-8 w-px bg-white/70 mx-2"></div>
 
             <div className="flex items-center gap-6 px-4">
-              <button className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
+              <Link href="/destinations" className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
                 <Hotel className="w-5 h-5" />
                 <span className="text-sm font-medium cursor-pointer">Hotels</span>
-              </button>
-              <button className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
+              </Link>
+              <Link href="/rentacar" className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
                 <Car className="w-5 h-5" />
                 <span className="text-sm font-medium cursor-pointer">Cars</span>
-              </button>
+              </Link>
             </div>
 
             <button className="bg-blue-600 hover:bg-blue-500 p-3 rounded-full transition-all shadow-lg ml-2">
