@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useState, useMemo } from "react";
 
@@ -23,7 +24,6 @@ const Contain = ({ cities }: ContainProps) => {
 
         <div className="absolute left-1/2 -bottom-10 -translate-x-1/2 w-[90%] max-w-5xl bg-white rounded-2xl shadow-xl p-5 z-20">
           <div className="relative grid grid-cols-1 md:grid-cols-4 gap-4">
-            {/* SEARCH INPUT */}
             <div className="relative">
               <input
                 className="bg-gray-100 p-3 rounded-xl outline-none w-full"
@@ -44,7 +44,7 @@ const Contain = ({ cities }: ContainProps) => {
                       className="px-4 py-2 cursor-pointer hover:bg-gray-100 text-sm"
                       onClick={() => {
                         setSearch(city);
-                        setIsOpen(false); // 🔥 DROPDOWN KAPANIYOR
+                        setIsOpen(false);
                       }}
                     >
                       {city}

@@ -28,10 +28,10 @@ export default async function HotelDetails({ params }: PageProps) {
 
         <div className="flex gap-2">
           <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded">
-            <CiShare2 /> Paylaş
+            <CiShare2 /> Share
           </button>
           <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded">
-            <CiHeart /> Kaydet
+            <CiHeart /> Save
           </button>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default async function HotelDetails({ params }: PageProps) {
 
       <div className="flex gap-10 mt-10">
         <Tabs />
-        <PriceCard />
+        <PriceCard price={data.price} />
       </div>
     </div>
   );

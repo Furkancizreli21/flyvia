@@ -28,7 +28,7 @@ export default function OpportunityHero() {
               </p>
 
               <div className="flex items-center gap-6 pt-2">
-                <button className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl text-sm font-semibold">
+                <button className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl text-sm font-semibold cursor-pointer">
                   Book Exclusive Experience
                 </button>
 
@@ -48,13 +48,12 @@ export default function OpportunityHero() {
         <section className="bg-gray-50 py-28">
           <div className="max-w-8xl mx-auto px-6 lg:px-12">
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <span className="inline-block mb-4 text-sm font-semibold tracking-widest text-blue-600 uppercase">
-                Handpicked Locations
-              </span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Where Will You Go Next?</h2>
-              <p className="mt-6 text-lg text-gray-500">Carefully selected destinations loved by travelers around the world.</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">All Opportunities</h2>
+              <p className="mt-6 text-lg text-gray-500">
+                Exclusive travel opportunities crafted for unforgettable moments — from hidden retreats to iconic escapes.
+              </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               {opportunitiesData.map((city) => (
                 <OpportunitiesCard
                   key={city.title}
@@ -79,6 +78,37 @@ export default function OpportunityHero() {
           </div>
         </section>
       </div>
+      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-900 to-indigo-950 py-24 px-6">
+        <div className="relative z-10 mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Stay Inspired</h2>
+          <p className="mt-4 text-base md:text-lg text-slate-400">
+            Sign up for our <span className="text-white font-medium">First Look</span> newsletter to receive curated travel
+            opportunities before they go public.
+          </p>
+
+          <form className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="
+              w-full sm:flex-1 rounded-full bg-white/10 px-6 py-4
+              text-sm text-white placeholder:text-slate-400
+              outline-none ring-1 ring-white/10
+              focus:ring-2 focus:ring-blue-500
+            "
+            />
+
+            <button
+              className="
+              rounded-full bg-blue-600 px-8 py-4 text-sm font-semibold text-white
+              transition-all hover:bg-blue-700 active:scale-95
+            "
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
     </>
   );
 }

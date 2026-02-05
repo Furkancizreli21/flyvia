@@ -12,6 +12,7 @@ export const opportunitiesData = [
     price: 3200,
     description:
       "A breathtaking journey through Norway’s iconic fjords featuring nature cruises, hiking trails, and luxury lodges.",
+    notification: "Last 48 hours",
     image: "norway.jpg",
   },
   {

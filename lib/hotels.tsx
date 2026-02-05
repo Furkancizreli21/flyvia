@@ -3,8 +3,8 @@ import { destinations } from "@/data/dummy-data";
 export type Hotel = {
   slug: string;
   name: string;
-  imageUrl: string; // S3 folder path
-  imageCount: number; // kaç foto var
+  imageUrl: string;
+  imageCount: number;
   location: string;
   description: string;
   price: number;

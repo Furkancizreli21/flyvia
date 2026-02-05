@@ -1,4 +1,3 @@
-//Homepage Instant Deals dummy-data
 export const hotelsData = [
   {
     id: 1,

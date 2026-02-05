@@ -29,7 +29,6 @@ export default function CarCard({ car }: CarCardProps) {
         </span>
       </div>
 
-      {/* Content */}
       <div className="relative z-20 p-5 flex flex-col gap-4">
         <div className="flex justify-between items-start">
           <div>
@@ -43,7 +42,6 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
         </div>
 
-        {/* Button */}
         <Link
           href="/book"
           className="bg-blue-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-700 transition z-20"

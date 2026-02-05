@@ -1,9 +1,8 @@
-"use client"; // Next.js kullanıyorsan interaktif olması için gerekli
+"use client";
 
 import { useMemo, useState } from "react";
 import DestinationCard from "@/components/helpersCard/DestinationCard";
 import { destinations } from "@/data/dummy-data";
-import { IoFilterSharp, IoOptionsOutline } from "react-icons/io5";
 
 export default function Destinations() {
   const [activeRegion, setActiveRegion] = useState("All");

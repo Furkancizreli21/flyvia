@@ -1,90 +1,111 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiX } from "react-icons/hi";
+
+const links = [
+  { href: "/destinations", label: "Holiday Destinations" },
+  { href: "/rentacar", label: "Rent a Car" },
+  { href: "/opportunities", label: "Opportunities" },
+  { href: "/contact", label: "Contact" },
+];
 
 const Navbar = () => {
   const path = usePathname();
   const isHome = path === "/";
-
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  }, [isOpen]);
 
   return (
     <>
-      <nav className={`top-0 w-full z-50 px-6 py-4 ${isHome ? "text-white" : "text-black"}`}>
+      <nav
+        className={`sticky top-0 z-50 w-full px-6 py-4 backdrop-blur-md transition ${
+          isHome ? "text-white bg-black/30" : "text-black bg-white/70 shadow-sm"
+        }`}
+      >
         <div className="container mx-auto flex items-center justify-between">
-          <button className="md:hidden" onClick={() => setIsOpen(true)}>
-            <RxHamburgerMenu fontSize={30} />
+          <button className="md:hidden" onClick={() => setIsOpen(true)} aria-label="Open menu">
+            <RxHamburgerMenu size={28} />
           </button>
 
           <Link href="/" className="flex items-center">
-            <Image src="/home/icon.png" alt="icon" width={150} height={10} />
+            <Image src="/home/icon.png" alt="Logo" width={140} height={40} />
           </Link>
 
           <ul className="hidden md:flex gap-8 font-medium">
-            <li className="hover:text-blue-400 transition">
-              <Link href="/destinations">Holiday Destinations</Link>
-            </li>
-            <li className="hover:text-blue-400 transition">
-              <Link href="/rentacar">Rent a car</Link>
-            </li>
-            <li className="hover:text-blue-400 transition">
-              <Link href="/opportunities">Opportunities</Link>
-            </li>
-            <li className="hover:text-blue-400 transition">
-              <Link href="/contact">Contact</Link>
-            </li>
+            {links.map((link) => {
+              const isActive = path === link.href;
+              return (
+                <li key={link.href}>
+                  <Link href={link.href} className={`relative transition hover:text-blue-500 ${isActive ? "text-blue-600" : ""}`}>
+                    {link.label}
+                    {isActive && <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-blue-600 rounded" />}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
-          <div className="hidden md:flex gap-4 items-center">
-            <button className="font-semibold hover:opacity-80">Login</button>
-            <button className="bg-white text-black px-5 py-2 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">
+          <div className="hidden md:flex items-center gap-4">
+            <Link href="/auth/login" className="hover:opacity-70">
+              Login
+            </Link>
+            <Link
+              href="/auth/register"
+              className="rounded-full bg-blue-600 px-5 py-2 text-white font-semibold hover:bg-blue-700 transition"
+            >
               Register
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
 
       <div
-        className={`fixed inset-0 z-50 bg-black/50 transition-opacity ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={() => setIsOpen(false)}
+        className={`fixed inset-0 z-40 bg-black/50 transition ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       />
 
-      <div
-        className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-300 ${
+      <aside
+        className={`fixed top-0 left-0 z-50 h-full w-72 bg-white transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between p-4 border-b">
-          <span className="font-bold text-lg">Menu</span>
+        <div className="flex items-center justify-between border-b p-4">
+          <span className="text-lg font-bold">Menu</span>
           <button onClick={() => setIsOpen(false)}>
-            <HiX size={28} />
+            <HiX size={26} />
           </button>
         </div>
 
         <nav className="flex flex-col gap-4 p-6 font-medium">
-          <Link href="/destinations" onClick={() => setIsOpen(false)}>
-            Holiday Destinations
-          </Link>
-          <Link href="/" onClick={() => setIsOpen(false)}>
-            Rent a car
-          </Link>
-          <Link href="/" onClick={() => setIsOpen(false)}>
-            Opportunities
-          </Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)}>
-            Contact
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={`py-2 ${path === link.href ? "text-blue-600 font-semibold" : ""}`}
+            >
+              {link.label}
+            </Link>
+          ))}
 
           <div className="mt-6 flex flex-col gap-3">
-            <button className="border py-2 rounded">Login</button>
-            <button className="bg-blue-600 text-white py-2 rounded">Register</button>
+            <Link href="/auth/login" className="rounded border py-2 text-center">
+              Login
+            </Link>
+            <Link href="/auth/register" className="rounded bg-blue-600 py-2 text-center text-white">
+              Register
+            </Link>
           </div>
         </nav>
-      </div>
+      </aside>
     </>
   );
 };
