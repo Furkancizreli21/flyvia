@@ -8,6 +8,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { HiX } from "react-icons/hi";
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "/destinations", label: "Holiday Destinations" },
   { href: "/rentacar", label: "Rent a Car" },
   { href: "/opportunities", label: "Opportunities" },
@@ -46,7 +47,7 @@ const Navbar = () => {
                 <li key={link.href}>
                   <Link href={link.href} className={`relative transition hover:text-blue-500 ${isActive ? "text-blue-600" : ""}`}>
                     {link.label}
-                    {isActive && <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-blue-600 rounded" />}
+                    {isActive && <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-blue-600 rounded" />}
                   </Link>
                 </li>
               );

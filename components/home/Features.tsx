@@ -1,4 +1,3 @@
-import React from "react";
 import { Compass, BadgeCheck, Headset } from "lucide-react";
 
 const WhyChooseUs = () => {
